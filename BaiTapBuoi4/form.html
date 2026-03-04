@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Form đăng ký thành viên</title>
+    </head>
+    <body>
+        <h1>Đăng ký thành viên</h1>
+
+        <form
+            action="https://api-gateway.f8.edu.vn/action_page.php"
+            method="post"
+            enctype="multipart/form-data"
+        >
+            <fieldset>
+                <legend>Thông tin cơ bản</legend>
+                <p>
+                    <label for="fullname">Họ và tên</label><br />
+                    <input
+                        tabindex="1"
+                        autofocus
+                        type="text"
+                        id="fullname"
+                        name="fullname"
+                        placeholder="Nguyễn Văn A"
+                        required
+                    />
+                </p>
+                <p>
+                    <label for="email">Email</label><br />
+                    <input
+                        tabindex="2"
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="example@gmail.com"
+                        required
+                    />
+                </p>
+                <p>
+                    <label for="password">Mật khẩu</label><br />
+                    <input
+                        tabindex="3"
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Nhập mật khẩu"
+                        minlength="6"
+                        autocomplete="off"
+                        required
+                    />
+                </p>
+
+                <p>
+                    <label for="confirm_password">Nhập lại mật khẩu</label><br />
+                    <input
+                        tabindex="4"
+                        type="password"
+                        id="confirm_password"
+                        name="confirm_password"
+                        placeholder="Nhập lại mật khẩu"
+                        autocomplete="off"
+                        required
+                    />
+                </p>
+                <p>
+                    <label for="phone">Số điện thoại</label><br />
+                    <input
+                        tabindex="5"
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="0xxxxxxxxx"
+                        pattern="0[0-9]{9}"
+                    />
+                </p>
+                <p>
+                    <label for="birthday">Ngày sinh</label><br />
+                    <input tabindex="6" type="date" id="birthday" name="birthday" required />
+                </p>
+                <p>
+                    <label for="age">Tuổi</label><br />
+                    <input tabindex="7" type="number" id="age" name="age" min="1" max="120" />
+                </p>
+                <p>
+                    <label for="website">Website cá nhân</label><br />
+                    <input
+                        tabindex="8"
+                        type="url"
+                        id="website"
+                        name="website"
+                        placeholder="https://..."
+                    />
+                </p>
+                <p>
+                    <label for="address">Địa chỉ</label><br />
+                    <input
+                        tabindex="9"
+                        type="text"
+                        id="address"
+                        name="address"
+                        placeholder="Số nhà, đường, phường/xã"
+                    />
+                </p>
+                <p>
+                    <label for="zipcode">Mã bưu chính</label><br />
+                    <input
+                        tabindex="10"
+                        type="text"
+                        id="zipcode"
+                        name="zipcode"
+                        maxlength="6"
+                        placeholder="700000"
+                    />
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Thông tin bổ sung</legend>
+
+                <p>
+                    <span>Giới tính</span><br />
+                    <label>
+                        <input
+                            tabindex="11"
+                            type="radio"
+                            name="gender"
+                            id="gender_male"
+                            value="Nam"
+                            required
+                        />
+                        Nam
+                    </label>
+                    <label>
+                        <input
+                            tabindex="12"
+                            type="radio"
+                            name="gender"
+                            id="gender_female"
+                            value="Nữ"
+                            required
+                        />
+                        Nữ
+                    </label>
+                    <label>
+                        <input
+                            tabindex="13"
+                            type="radio"
+                            name="gender"
+                            id="gender_other"
+                            value="Khác"
+                            required
+                        />
+                        Khác
+                    </label>
+                </p>
+                <p>
+                    <span>Sở thích</span><br />
+                    <label
+                        ><input
+                            tabindex="14"
+                            type="checkbox"
+                            id="hobby_reading"
+                            name="hobby"
+                            value="Đọc sách"
+                        />
+                        Đọc sách</label
+                    ><br />
+                    <label
+                        ><input
+                            tabindex="15"
+                            type="checkbox"
+                            id="hobby_music"
+                            name="hobby"
+                            value="Nghe nhạc"
+                        />
+                        Nghe nhạc</label
+                    ><br />
+                    <label
+                        ><input
+                            tabindex="16"
+                            type="checkbox"
+                            id="hobby_travel"
+                            name="hobby"
+                            value="Du lịch"
+                        />
+                        Du lịch</label
+                    ><br />
+                    <label
+                        ><input
+                            tabindex="17"
+                            type="checkbox"
+                            id="hobby_coding"
+                            name="hobby"
+                            value="Lập trình"
+                        />
+                        Lập trình</label
+                    ><br />
+                    <label
+                        ><input
+                            tabindex="18"
+                            type="checkbox"
+                            id="hobby_cook"
+                            name="hobby"
+                            value="Nấu ăn"
+                        />
+                        Nấu ăn</label
+                    ><br />
+                    <label
+                        ><input
+                            tabindex="19"
+                            type="checkbox"
+                            id="hobby_sport"
+                            name="hobby"
+                            value="Thể thao"
+                        />
+                        Thể thao</label
+                    >
+                </p>
+                <p>
+                    <label for="education">Trình độ học vấn</label><br />
+                    <select tabindex="20" id="education" name="education">
+                        <option value="">-- Chọn --</option>
+                        <option value="Trung học">Trung học</option>
+                        <option value="Cao đẳng">Cao đẳng</option>
+                        <option value="Đại học">Đại học</option>
+                        <option value="Sau đại học">Sau đại học</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="city">Tỉnh / Thành phố được chọn nhiều</label><br />
+                    <select tabindex="21" id="city" name="city" multiple size="6">
+                        <option value="Hà Nội">Hà Nội</option>
+                        <option value="TP.HCM">TP.HCM</option>
+                        <option value="Đà Nẵng">Đà Nẵng</option>
+                        <option value="Cần Thơ">Cần Thơ</option>
+                        <option value="Hải Phòng">Hải Phòng</option>
+                        <option value="Bình Dương">Bình Dương</option>
+                        <option value="Đồng Nai">Đồng Nai</option>
+                    </select>
+                    <br />
+                    <small>Ít nhất 5 tỉnh/thành</small>
+                </p>
+                <p>
+                    <label for="job">Nghề nghiệp</label><br />
+                    <select tabindex="22" id="job" name="job">
+                        <option value="">-- Chọn --</option>
+                        <option value="Học sinh">Học sinh</option>
+                        <option value="Sinh viên">Sinh viên</option>
+                        <option value="Nhân viên văn phòng">Nhân viên văn phòng</option>
+                        <option value="Lập trình viên">Lập trình viên</option>
+                        <option value="Khác">Khác</option>
+                    </select>
+                </p>
+                <p>
+                    <span>Khóa học quan tâm</span><br />
+                    <label
+                        ><input
+                            tabindex="23"
+                            type="checkbox"
+                            id="course_htmlcss"
+                            name="course"
+                            value="HTML-CSS"
+                        />
+                        HTML-CSS</label
+                    ><br />
+                    <label
+                        ><input
+                            tabindex="24"
+                            type="checkbox"
+                            id="course_js"
+                            name="course"
+                            value="JavaScript"
+                        />
+                        JavaScript</label
+                    ><br />
+                    <label
+                        ><input
+                            tabindex="25"
+                            type="checkbox"
+                            id="course_react"
+                            name="course"
+                            value="ReactJS"
+                        />
+                        ReactJS</label
+                    ><br />
+                    <label
+                        ><input
+                            tabindex="26"
+                            type="checkbox"
+                            id="course_node"
+                            name="course"
+                            value="NodeJS"
+                        />
+                        NodeJS</label
+                    ><br />
+                    <label
+                        ><input
+                            tabindex="27"
+                            type="checkbox"
+                            id="course_python"
+                            name="course"
+                            value="Python"
+                        />
+                        Python</label
+                    >
+                </p>
+                <p>
+                    <span>Hình thức học</span><br />
+                    <label>
+                        <input
+                            tabindex="28"
+                            type="radio"
+                            id="study_online"
+                            name="study_type"
+                            value="Online"
+                        />
+                        Online
+                    </label>
+                    <label>
+                        <input
+                            tabindex="29"
+                            type="radio"
+                            id="study_offline"
+                            name="study_type"
+                            value="Offline"
+                        />
+                        Offline
+                    </label>
+                </p>
+                <p>
+                    <label for="bio">Giới thiệu bản thân</label><br />
+                    <textarea
+                        tabindex="30"
+                        id="bio"
+                        name="bio"
+                        rows="4"
+                        placeholder="Nội dung"
+                    ></textarea>
+                </p>
+                <p>
+                    <label for="avatar">Ảnh đại diện</label><br />
+                    <input tabindex="31" type="file" id="avatar" name="avatar" accept=".jpg,.png" />
+                </p>
+
+                <p>
+                    <label for="cv">CV / Hồ sơ</label><br />
+                    <input tabindex="32" type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" />
+                </p>
+            </fieldset>
+            <fieldset>
+                <legend>Input đặc biệt</legend>
+                <p>
+                    <label for="fav_color">Màu yêu thích</label><br />
+                    <input
+                        tabindex="33"
+                        type="color"
+                        id="fav_color"
+                        name="fav_color"
+                        value="#ff6600"
+                    />
+                </p>
+                <p>
+                    <label for="satisfaction">Mức độ hài lòng (0–10)</label><br />
+                    <input
+                        tabindex="34"
+                        type="range"
+                        id="satisfaction"
+                        name="satisfaction"
+                        min="0"
+                        max="10"
+                        value="5"
+                    />
+                </p>
+                <p>
+                    <label for="study_time">Giờ học trong ngày</label><br />
+                    <input tabindex="35" type="time" id="study_time" name="study_time" />
+                </p>
+                <p>
+                    <label for="start_month">Tháng bắt đầu học</label><br />
+                    <input tabindex="36" type="month" id="start_month" name="start_month" />
+                </p>
+                <p>
+                    <label for="start_week">Tuần bắt đầu học</label><br />
+                    <input tabindex="37" type="week" id="start_week" name="start_week" />
+                </p>
+                <p>
+                    <label for="register_at">Ngày & giờ đăng ký</label><br />
+                    <input
+                        tabindex="38"
+                        type="datetime-local"
+                        id="register_at"
+                        name="register_at"
+                    />
+                </p>
+                <p>
+                    <label for="search_course">Tìm kiếm khóa học</label><br />
+                    <input
+                        tabindex="39"
+                        type="search"
+                        id="search_course"
+                        name="search_course"
+                        placeholder="Nhập tên khóa học..."
+                    />
+                </p>
+                <p>
+                    <label for="experience">Số năm kinh nghiệm</label><br />
+                    <input
+                        tabindex="40"
+                        type="number"
+                        id="experience"
+                        name="experience"
+                        min="0"
+                        max="50"
+                        step="1"
+                    />
+                </p>
+                <p>
+                    <label for="budget">Mức học phí mong muốn</label><br />
+                    <input
+                        tabindex="41"
+                        type="range"
+                        id="budget"
+                        name="budget"
+                        min="0"
+                        max="5000000"
+                        step="100000"
+                        value="1000000"
+                    />
+                </p>
+                <p>
+                    <label for="fav_lang">Ngôn ngữ lập trình yêu thích</label><br />
+                    <input
+                        tabindex="42"
+                        type="text"
+                        id="fav_lang"
+                        name="fav_lang"
+                        placeholder="VD: JavaScript, Python..."
+                    />
+                </p>
+            </fieldset>
+            <fieldset>
+                <legend>Xác nhận & điều khoản</legend>
+                <p>
+                    <label>
+                        <input
+                            tabindex="45"
+                            type="checkbox"
+                            id="agree_terms"
+                            name="agree_terms"
+                            required
+                        />
+                        Tôi đồng ý với điều khoản sử dụng
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input tabindex="46" type="checkbox" id="subscribe" name="subscribe" />
+                        Nhận thông báo qua email
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input tabindex="47" type="checkbox" id="sms_notify" name="sms_notify" />
+                        Nhận thông báo qua SMS
+                    </label>
+                </p>
+                <p>
+                    <label for="ref_code">Mã giới thiệu (readonly)</label><br />
+                    <input
+                        tabindex="43"
+                        type="text"
+                        id="ref_code"
+                        name="ref_code"
+                        value="F8-FREE"
+                        readonly
+                        placeholder="Nhập mã nếu có"
+                    />
+                    <small>
+                        giải thích: readonly người dùng không sửa được nhưng vẫn gửi dữ liệu lên
+                        server
+                    </small>
+                </p>
+                <input type="hidden" id="course_id" name="course_id" value="F8_2024" />
+                <input type="hidden" id="utm_source" name="utm_source" value="website" />
+            </fieldset>
+            <fieldset>
+                <legend>Nút bấm</legend>
+                <p>
+                    <button tabindex="48" type="submit">Đăng ký ngay</button>
+                    <button tabindex="49" type="reset">Nhập lại</button>
+                </p>
+            </fieldset>
+        </form>
+    </body>
+</html>
