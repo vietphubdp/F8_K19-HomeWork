@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Bai 1</title>
+        <style>
+            .container {
+                background-color: #f9fafb;
+                width: 40%;
+                margin: 0 auto;
+            }
+            h1 {
+                color: #ffffff;
+                height: 50px;
+                line-height: 50px;
+                background-color: #f98000;
+            }
+            .block {
+                height: 30px;
+                background-color: #fff;
+                color: #9ca3af;
+                line-height: 30px;
+            }
+            label {
+                color: #4b5563;
+                background-color: #eef2ff;
+            }
+            /* Light */
+            input#light:checked + label {
+                color: #8b5e00;
+                background-color: #fff8cc;
+            }
+            input#light:checked ~ .content-light {
+                color: #111827;
+                background-color: #fff8cc;
+            }
+            /* Dark */
+            input#dark:checked + label {
+                color: #111827;
+                background-color: #f9fafb;
+            }
+            input#dark:checked ~ .content-dark {
+                color: #f9fafb;
+                background-color: #111827;
+            }
+            /* Red */
+            input#red:checked + label {
+                color: #991b1b;
+                background-color: #fee2e2;
+            }
+            input#red:checked ~ .content-red {
+                color: #7f1d1d;
+                background-color: #fee2e2;
+            }
+            /* Blue */
+            input#blue:checked + label {
+                color: #1d4ed8;
+                background-color: #dbeafe;
+            }
+            input#blue:checked ~ .content-blue {
+                color: #1d4ed8;
+                background-color: #dbeafe;
+            }
+            /* Green */
+            input#green:checked + label {
+                color: #166534;
+                background-color: #dcfce7;
+            }
+            input#green:checked ~ .content-green {
+                color: #166534;
+                background-color: #dcfce7;
+            }
+            /* Lang Vi */
+            input#vi:checked + label {
+                color: #166534;
+                background-color: #bbf7d0;
+            }
+            input#vi:checked ~ .content-vi {
+                color: #166534;
+            }
+            /* Lang En */
+            input#en:checked + label {
+                color: #1d4ed8;
+                background-color: #bfdbfe;
+            }
+            input#en:checked ~ .content-en {
+                color: #1d4ed8;
+            }
+            /* Option */
+            #option1:checked + label {
+                color: #92400e;
+                background-color: #fef3c7;
+            }
+            #option1:checked ~ .content-adv {
+                color: #92400e;
+                background-color: #fef3c7;
+            }
+            #option2:checked + label {
+                color: #15803d;
+                background-color: #bbf7d0;
+            }
+            #option2:checked ~ .content-eco {
+                color: #166534;
+                background-color: #bbf7d0;
+            }
+            #option3:checked + label {
+                color: #b91c1c;
+                background-color: #fee2e2;
+            }
+            #option3:checked ~ .content-warning {
+                color: #b91c1c;
+                background-color: #fee2e2;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Trung tâm cấu hình giao diện (Demo)</h1>
+            <!-- Theme -->
+            <p>Chọn giao diện (Theme):</p>
+            <input name="theme" id="light" type="radio" />
+            <label for="light">Light</label>
+            <input name="theme" id="dark" type="radio" />
+            <label for="dark">Dark</label>
+            <!-- Color -->
+            <p>Chọn màu chủ đạo (Color):</p>
+            <input name="color" id="red" type="radio" />
+            <label for="red">Red</label>
+            <input name="color" id="blue" type="radio" />
+            <label for="blue">Blue</label>
+            <input name="color" id="green" type="radio" />
+            <label for="green">Green</label>
+            <!-- Language -->
+            <p>Chọn ngôn ngữ (Language)</p>
+            <input name="language" id="vi" type="radio" />
+            <label for="vi">VI</label>
+            <input name="language" id="en" type="radio" />
+            <label for="en">EN</label>
+            <!-- Option -->
+            <p>Tùy chọn bổ sung (Optional - Checkbox)</p>
+            <input type="checkbox" id="option1" />
+            <label for="option1">Hiển thị mô tả nâng cao</label>
+            <input type="checkbox" id="option2" />
+            <label for="option2">Bật chế độ Eco</label>
+            <input type="checkbox" id="option3" />
+            <label for="option3">Hiển thị cảnh báo quan trọng</label>
+
+            <div class="block content-light">
+                <p>Theme Light: Giao diện sáng, chữ đen.</p>
+            </div>
+            <div class="block content-dark">
+                <p>Theme Dark: Giao diện tối, chữ sáng.</p>
+            </div>
+            <div class="block content-red">
+                <p>Màu Red: được nhấn mạnh khi chọn Red.</p>
+            </div>
+            <div class="block content-blue">
+                <p>Màu Blue: được nhấn mạnh khi chọn Blue.</p>
+            </div>
+            <div class="block content-green">
+                <p>Màu Green: được nhấn mạnh khi chọn Green.</p>
+            </div>
+            <div class="block content-vi">
+                <p>[VI] Xin chào bạn! Khi chọn VI, dòng này rõ hơn.</p>
+            </div>
+            <div class="block content-en">
+                <p>[EN] Hello, world! Khi chọn EN, dòng này rõ hơn</p>
+            </div>
+            <div class="block content-adv">
+                <p>Mô tả nâng cao: giải thích kỹ hơn về cách lựa chọn đang ảnh hưởng giao diện.</p>
+            </div>
+            <div class="block content-eco">
+                <p>Chế độ Eco: mô phỏng trạng thái tiết kiệm tài nguyên cho giao diện.</p>
+            </div>
+            <div class="block content-warning">
+                <p>Cảnh báo quan trọng: khu vực dùng để nhấn mạnh thông tin hệ thống</p>
+            </div>
+        </div>
+    </body>
+</html>
