@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Toast Notification</title>
+    </head>
+    <style>
+        input {
+            display: none;
+        }
+        /* CSS cho nút mở thông báo */
+        .open-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            margin: 20px;
+        }
+        /* CSS cho thông báo */
+        .toast {
+            background-color: #19b94e;
+            color: #fff;
+            padding: 10px 20px;
+            display: none;
+            margin: 20px;
+        }
+        /* CSS khi bấm nút hiện thông báo thì cho thông báo toast hiện ra */
+        #toast-toggle:checked ~ .toast {
+            display: inline-block;
+        }
+        /* CSS cho nút đóng thông báo */
+        .close-btn {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #156d2f;
+            color: #fff;
+            margin-left: 20px;
+        }
+        /* Khi check vào input lần nữa thì ẩn thông báo */
+        #btn-close:checked ~ .toast {
+            display: none;
+        }
+    </style>
+    <body>
+        <input type="checkbox" name="" id="toast-toggle" />
+        <label class="open-btn" for="toast-toggle">Hiện thông báo</label>
+
+        <div class="toast">
+            Lưu thành công!
+            <!-- Thêm một label trỏ vào id của toast-toggle để đóng thông báo -->
+            <label class="close-btn" for="toast-toggle">x</label>
+        </div>
+    </body>
+</html>
