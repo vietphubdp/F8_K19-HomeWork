@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #334155;
+}
+
+body {
+    background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
+    min-height: 100vh;
+}
+
+#open-menu {
+    display: none;
+}
+
+.open-menu {
+    position: absolute;
+    font-weight: bold;
+    width: 10rem;
+    text-align: center;
+    left: 50%;
+    top: 50%;
+    margin-left: -3.75rem;
+    margin-top: -1.875rem;
+    background-color: #f05123;
+    color: white;
+    padding: 0.9375rem 1.25rem;
+    border-radius: 6.25rem;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.open-menu:hover {
+    background-color: #d8431c;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 31.25rem;
+    max-width: calc(100% - 2rem);
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    z-index: 2;
+}
+
+#open-menu:checked ~ .overlay {
+    display: block;
+}
+
+#open-menu:checked ~ .modal {
+    display: block;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 0.9375rem;
+    color: #1e293b;
+}
+
+.description {
+    text-align: center;
+    margin-bottom: 1.875rem;
+    color: #64748b;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.label-form {
+    font-size: 0.875rem;
+    display: block;
+    margin-bottom: 0.3125rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.625rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+}
+
+.form-group input:focus,
+.form-group input:hover {
+    border-color: #9c59f1;
+    outline: none;
+}
+
+.description-course {
+    font-size: 0.875rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.required-text {
+    color: red;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 0.9375rem;
+    background-color: #a855f7;
+    color: white;
+    border: none;
+    border-radius: 1.875rem;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 0.625rem;
+}
+
+.btn-submit:hover {
+    background: #9333ea;
+}
+
+.field-wrap {
+    position: relative;
+    display: block;
+}
+
+.tooltip {
+    position: absolute;
+    left: 0;
+    bottom: calc(100% + 0.5rem);
+    z-index: 30;
+    visibility: hidden;
+    opacity: 0;
+    background: #1e293b;
+    color: #ffffff;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    padding: 0.625rem 0.75rem;
+    border-radius: 0.5rem;
+    width: 16rem;
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease;
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 100%;
+    width: 0;
+    height: 0;
+    border-left: 0.375rem solid transparent;
+    border-right: 0.375rem solid transparent;
+    border-top: 0.5rem solid #1e293b;
+}
+
+.field-wrap:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.checkbox-group {
+    position: relative;
+    margin-bottom: 0.75rem;
+    border-radius: 0.75rem;
+}
+.checkbox-group .tooltip {
+    left: 0.75rem;
+    bottom: calc(100% + 0.5rem);
+    width: 15rem;
+}
+
+.checkbox-input {
+    margin-right: 0.5rem;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.checkbox-label {
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.checkbox-group:hover .tooltip,
+.checkbox-label:hover ~ .tooltip,
+.checkbox-input:hover ~ .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
