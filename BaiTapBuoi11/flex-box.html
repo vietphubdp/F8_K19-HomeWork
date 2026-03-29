@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Flex Box</title>
+        <style>
+            .container {
+                display: flex;
+                width: 600px;
+                height: 200px;
+                margin-bottom: 20px;
+                border: 2px solid red;
+            }
+            .item {
+                width: 60px;
+                height: 60px;
+                background-color: steelblue;
+                color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            /* Bai 1 */
+            .bai-1 {
+                justify-content: space-between;
+                align-items: center;
+            }
+            /* Bai 2 */
+            .bai-2 {
+                justify-content: space-between;
+                flex-direction: row-reverse;
+                align-items: center;
+            }
+            /* Bai 3 */
+            .bai-3 {
+                flex-direction: column;
+                align-items: center;
+            }
+            .bai-3 .item:first-child {
+                margin-bottom: 20px;
+            }
+            .bai-3 .item:nth-child(2) {
+                margin-bottom: 50px;
+            }
+            /* Bai 4 */
+            .bai-4 {
+                justify-content: center;
+                align-items: center;
+            }
+            .bai-4 .item:first-child {
+                margin-right: 10px;
+            }
+            .bai-4 .item:nth-child(2) {
+                margin-right: 40px;
+            }
+            /* Bai 5 */
+            .bai-5 {
+                flex-direction: column-reverse;
+                justify-content: center;
+                align-items: center;
+            }
+            /* Bai 6 */
+            .bai-6 {
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+            /* Bai 7 */
+            .bai-7 {
+                flex-direction: column;
+                align-items: center;
+            }
+            .bai-7 .item:first-child {
+                margin-bottom: 60px;
+            }
+            .bai-7 .item:nth-child(2) {
+                margin-bottom: 20px;
+            }
+            /* Bai 8 */
+            .bai-8 {
+                justify-content: space-between;
+                align-items: center;
+            }
+            .bai-8 .item:nth-child(2) {
+                margin: 0 auto;
+            }
+            /* Bai 9 */
+            .bai-9 {
+                justify-content: center;
+            }
+            .bai-9 .item {
+                margin: 20px;
+            }
+            .bai-9 .item:nth-child(2) {
+                margin: auto 0;
+            }
+            .bai-9 .item:last-child {
+                margin-top: 120px;
+            }
+            /* Bai 10 */
+            .bai-10 {
+                justify-content: space-between;
+            }
+            .bai-10 .item:nth-child(2) {
+                margin: auto;
+            }
+            .bai-10 .item:last-child {
+                margin-top: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Container 1 -->
+        <h2>Container 1</h2>
+        <div class="container bai-1">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+        <!-- Container 2 -->
+        <h2>Container 2</h2>
+        <div class="container bai-2">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+        <!-- Container 3 -->
+        <h2>Container 3</h2>
+        <div class="container bai-3">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+        <!-- Container 4 -->
+        <h2>Container 4</h2>
+        <div class="container bai-4">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+        <!-- Container 5 -->
+        <h2>Container 5</h2>
+        <div class="container bai-5">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+        <!-- Container 6 -->
+        <h2>Container 6</h2>
+        <div class="container bai-6">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+        <!-- Container 7 -->
+        <h2>Container 7</h2>
+        <div class="container bai-7">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+        <!-- Container 8 -->
+        <h2>Container 8</h2>
+        <div class="container bai-8">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+        <!-- Container 9 -->
+        <h2>Container 9</h2>
+        <div class="container bai-9">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+        <!-- Container 10 -->
+        <h2>Container 10</h2>
+        <div class="container bai-10">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+    </body>
+</html>
