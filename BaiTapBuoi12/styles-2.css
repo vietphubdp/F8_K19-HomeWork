@@ -1,0 +1,240 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.heading {
+    color: #2c3e50;
+    font-weight: 700;
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 15px;
+    text-align: center;
+    color: #7f8c8d;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+
+    gap: 25px;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.card {
+    width: 350px;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-img {
+    position: relative;
+}
+
+.card-img img {
+    display: inline-block;
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+}
+
+.card-info {
+    padding: 18px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #ffffff;
+    border-radius: 20px;
+}
+
+.badge-sale {
+    background-color: #e74c3c;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
+.badge-rent {
+    background-color: #e67e22;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
+.icon-flash {
+    line-height: 32px;
+    width: 32px;
+    width: 32px;
+    border-radius: 50%;
+    background: #2c3e50;
+    color: #ffffff;
+    position: absolute;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 12px;
+    left: 105px;
+}
+
+.type-house {
+    padding: 6px 16px;
+    border-radius: 20px;
+    background: #34495e;
+    font-size: 12px;
+    font-weight: 600;
+    color: #ffffff;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.badge-price {
+    padding: 8px 20px;
+    border-radius: 20px;
+    background: #16a085;
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+}
+
+.badge-price:hover {
+    box-shadow: 0 4px 12px rgba(22, 160, 133, 0.4);
+}
+
+.btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    line-height: 1;
+}
+
+.btn-heart {
+    color: #7f8c8d;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+.btn-heart:hover {
+    background: #e74c3c;
+    color: #ffffff;
+}
+
+.btn-share {
+    color: #7f8c8d;
+    position: absolute;
+    right: 60px;
+    bottom: 15px;
+}
+
+.btn-share:hover {
+    background: #3498db;
+    color: #ffffff;
+}
+
+.address {
+    color: #95a5a6;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.house-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.house-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.avatar {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #bdc3c7;
+    color: #ffffff;
+}
+
+.name {
+    font-size: 12px;
+    color: #7f8c8d;
+}
+
+.date {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.created-at {
+    font-size: 12px;
+    color: #95a5a6;
+}
+
+.detail {
+    display: flex;
+    border-top: 1px solid #ecf0f1;
+    gap: 15px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    font-size: 12px;
+    gap: 8px;
+}
+
+.detail-item-text {
+    color: #7f8c8d;
+}
+
+.detail-item-icon {
+    color: #95a5a6;
+}
