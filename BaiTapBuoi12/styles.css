@@ -1,0 +1,135 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #666666;
+}
+
+body {
+    background-color: #ebf5fe;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    border: 2px solid #e0e0e0;
+    flex: 1 1 calc((100% - 40px) / 3);
+}
+
+/* CSS border khi hover vào card */
+.card-ui:hover {
+    border: 3px solid #ff6b6b;
+}
+
+.card-dev:hover {
+    border: 3px solid #4ecdc4;
+}
+
+.card-marketing:hover {
+    border: 3px solid #f9a825;
+}
+
+.card-design:hover {
+    border: 3px solid #5e9cff;
+}
+
+.card-responsive:hover {
+    border: 3px solid #9b59b6;
+}
+
+.card-support:hover {
+    border: 3px solid #7cb342;
+}
+
+/* Nhóm icon và tiêu đề */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 5px;
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CSS icon */
+.card-ui .card-icon {
+    background-color: #ff6b6b;
+}
+
+.card-dev .card-icon {
+    background-color: #4ecdc4;
+}
+
+.card-marketing .card-icon {
+    background-color: #f9a825;
+}
+
+.card-design .card-icon {
+    background-color: #5e9cff;
+}
+
+.card-responsive .card-icon {
+    background-color: #9b59b6;
+}
+
+.card-support .card-icon {
+    background-color: #7cb342;
+}
+
+/* Tiêu đề card */
+.card-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333333;
+    line-height: 1.3;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+/* Mô tả card */
+.desc {
+    font-size: 15px;
+    font-weight: 400;
+    color: #666666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Liên kết learn more */
+.learn-more {
+    font-size: 15px;
+    font-weight: 500;
+    color: #2196f3;
+    text-decoration: none;
+}
+
+/* Hiệu ứng khi hover vào liên kết learn more */
+.learn-more:hover {
+    text-decoration: underline;
+}
