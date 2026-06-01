@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FakeStore</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">FakeStore</div>
+
+      <div class="search">
+        <input type="text" placeholder="Tìm kiếm sản phẩm" id="searchInput" />
+      </div>
+
+      <div class="cart">
+        🛒
+        <span id="cartCount">0</span>
+      </div>
+    </header>
+
+    <main>
+      <aside>
+        <h3>Danh mục</h3>
+        <div id="categories"></div>
+      </aside>
+
+      <section class="content">
+        <h1>Tất cả sản phẩm</h1>
+        <p id="totalProduct">Hiển thị 0 sản phẩm</p>
+
+        <div class="products" id="products"></div>
+      </section>
+    </main>
+
+    <script src="main.js"></script>
+  </body>
+</html>
