@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Management</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2>Customer</h2>
+        <button id="addBtn">+ Add new</button>
+      </div>
+
+      <input type="text" id="searchInput" placeholder="Search customer..." />
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Tax</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="customerTable"></tbody>
+      </table>
+    </div>
+
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <h3 id="modalTitle">Add customer</h3>
+
+        <input type="text" id="name" placeholder="Name" />
+        <input type="text" id="tax" placeholder="Tax" />
+        <input type="text" id="address" placeholder="Address" />
+
+        <div class="modal-actions">
+          <button class="close-btn" id="closeBtn">Close</button>
+          <button class="save-btn" id="saveBtn">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "name": "Công ty TNHH VEV",
+      "tax": "0885437553543",
+      "address": "Hà Đông, Hà Nội"
+    },
+    {
+      "id": 2,
+      "name": "Công ty Cổ phần ABC",
+      "tax": "0312345678",
+      "address": "Quận 1, TP. Hồ Chí Minh"
+    },
+    {
+      "id": 3,
+      "name": "Công ty TNHH XYZ",
+      "tax": "0409876543",
+      "address": "Hải Châu, Đà Nẵng"
+    },
+    {
+      "id": 4,
+      "name": "Công ty Cổ phần Công Nghệ Việt",
+      "tax": "0201122334",
+      "address": "Ngô Quyền, Hải Phòng"
+    },
+    {
+      "id": 5,
+      "name": "Công ty TNHH Thương Mại Minh Phát",
+      "tax": "0605566778",
+      "address": "Ninh Kiều, Cần Thơ"
+    }
+  ]
+}
