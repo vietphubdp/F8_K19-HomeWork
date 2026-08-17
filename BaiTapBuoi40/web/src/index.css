@@ -1,0 +1,8 @@
+/* CSS reset handled by MUI CssBaseline */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', 'Inter', sans-serif;
+  background-color: #f4f5f7;
+}
