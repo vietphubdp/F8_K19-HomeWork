@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Box,
   Container,
@@ -7,17 +7,44 @@ import {
   Tab,
   Button,
   Stack,
+  CircularProgress,
 } from '@mui/material';
 import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
 import JobCard from '../common/JobCard';
-import { mockJobs } from '../../mock/mockData';
+import { getJobs } from '../../api/jobService';
 
 export default function HotJobsSection() {
   const [tabValue, setTabValue] = useState(0);
+  const [jobs, setJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let isMounted = true;
+    getJobs().then((data) => {
+      if (isMounted) {
+        setJobs(data);
+        setLoading(false);
+      }
+    });
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   const handleTabChange = (event, newValue) => {
     setTabValue(newValue);
   };
+
+  // Filter jobs based on active tab
+  const getFilteredJobs = () => {
+    if (tabValue === 1) return jobs.filter((j) => j.location?.includes('Hà Nội'));
+    if (tabValue === 2) return jobs.filter((j) => j.location?.includes('Hồ Chí Minh'));
+    if (tabValue === 3) return jobs.filter((j) => j.category?.includes('Công nghệ') || j.category?.includes('phần mềm'));
+    if (tabValue === 4) return jobs.filter((j) => j.category?.includes('Sales') || j.category?.includes('Kinh doanh'));
+    return jobs;
+  };
+
+  const filteredJobs = getFilteredJobs();
 
   return (
     <Box sx={{ py: 6, backgroundColor: '#f4f5f7', overflow: 'hidden' }}>
@@ -50,25 +77,32 @@ export default function HotJobsSection() {
           </Tabs>
         </Box>
 
-        {/* CSS Grid layout using minmax(0, 1fr) to strictly prevent horizontal overflow */}
-        <Box
-          sx={{
-            display: 'grid',
-            gridTemplateColumns: {
-              xs: '1fr',
-              sm: 'repeat(2, minmax(0, 1fr))',
-              lg: 'repeat(3, minmax(0, 1fr))',
-            },
-            gap: 2.5,
-            width: '100%',
-          }}
-        >
-          {mockJobs.map((job) => (
-            <Box key={job.id} sx={{ minWidth: 0, height: '100%' }}>
-              <JobCard job={job} />
-            </Box>
-          ))}
-        </Box>
+        {/* Loading Indicator */}
+        {loading ? (
+          <Box sx={{ display: 'flex', justifyContent: 'center', py: 6 }}>
+            <CircularProgress color="primary" />
+          </Box>
+        ) : (
+          /* CSS Grid layout using minmax(0, 1fr) to strictly prevent horizontal overflow */
+          <Box
+            sx={{
+              display: 'grid',
+              gridTemplateColumns: {
+                xs: '1fr',
+                sm: 'repeat(2, minmax(0, 1fr))',
+                lg: 'repeat(3, minmax(0, 1fr))',
+              },
+              gap: 2.5,
+              width: '100%',
+            }}
+          >
+            {filteredJobs.map((job) => (
+              <Box key={job.id} sx={{ minWidth: 0, height: '100%' }}>
+                <JobCard job={job} />
+              </Box>
+            ))}
+          </Box>
+        )}
 
         {/* Load More Button */}
         <Box sx={{ textAlign: 'center', mt: 4 }}>

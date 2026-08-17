@@ -27,7 +27,7 @@ export default function JobCard({ job }) {
 
   return (
     <Card
-      onClick={() => navigate('/job-detail')}
+      onClick={() => navigate(job.id ? `/job/${job.id}` : '/job-detail')}
       sx={{
         p: 2,
         height: '100%',

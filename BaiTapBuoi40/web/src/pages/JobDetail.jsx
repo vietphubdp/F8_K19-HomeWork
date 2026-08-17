@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import {
   Box,
   Container,
@@ -11,6 +12,7 @@ import {
   Breadcrumbs,
   Link,
   Avatar,
+  CircularProgress,
 } from '@mui/material';
 import SubHeader from '../components/layout/SubHeader';
 import JobCard from '../components/common/JobCard';
@@ -27,14 +29,59 @@ import CategoryIcon from '@mui/icons-material/Category';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import ReportProblemOutlinedIcon from '@mui/icons-material/ReportProblemOutlined';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import { mockJobs, mockCompanies } from '../mock/mockData';
+import { getJobById, getJobs } from '../api/jobService';
 
 export default function JobDetail() {
+  const { id } = useParams();
+  const [job, setJob] = useState(null);
+  const [relatedJobs, setRelatedJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [saved, setSaved] = useState(false);
 
-  const job = mockJobs[0];
-  const company = job.company || mockCompanies[0];
-  const relatedJobs = mockJobs.slice(1, 4);
+  useEffect(() => {
+    let isMounted = true;
+    setLoading(true);
+
+    const targetId = id || 'job-001';
+
+    Promise.all([getJobById(targetId), getJobs()]).then(([jobData, allJobs]) => {
+      if (isMounted) {
+        setJob(jobData);
+        setRelatedJobs(allJobs.filter((j) => String(j.id) !== String(targetId)).slice(0, 3));
+        setLoading(false);
+      }
+    });
+
+    return () => {
+      isMounted = false;
+    };
+  }, [id]);
+
+  if (loading) {
+    return (
+      <Box sx={{ backgroundColor: '#f4f5f7', minHeight: '100vh' }}>
+        <SubHeader />
+        <Container maxWidth="lg" sx={{ py: 10, textAlign: 'center' }}>
+          <CircularProgress color="primary" />
+        </Container>
+      </Box>
+    );
+  }
+
+  if (!job) {
+    return (
+      <Box sx={{ backgroundColor: '#f4f5f7', minHeight: '100vh' }}>
+        <SubHeader />
+        <Container maxWidth="lg" sx={{ py: 10, textAlign: 'center' }}>
+          <Typography variant="h6" color="text.secondary">
+            Không tìm thấy thông tin tin tuyển dụng hoặc không có dữ liệu từ API.
+          </Typography>
+        </Container>
+      </Box>
+    );
+  }
+
+  const company = job.company || {};
 
   return (
     <Box sx={{ backgroundColor: '#f4f5f7', minHeight: '100vh', pb: 8 }}>
@@ -48,7 +95,7 @@ export default function JobDetail() {
             Trang chủ
           </Link>
           <Link underline="hover" color="inherit" href="#" sx={{ fontSize: '0.85rem', color: '#6c757d' }}>
-            Việc làm IT / Phần mềm
+            {job.category || 'Việc làm IT / Phần mềm'}
           </Link>
           <Typography color="text.primary" sx={{ fontSize: '0.85rem', fontWeight: 600 }}>
             {job.title}
@@ -88,8 +135,8 @@ export default function JobDetail() {
                   >
                     <Box
                       component="img"
-                      src={company.logo_url}
-                      alt={company.company_name}
+                      src={job.logo_url}
+                      alt={job.company_name}
                       sx={{ width: '100%', height: '100%', objectFit: 'contain' }}
                     />
                   </Box>
@@ -100,7 +147,7 @@ export default function JobDetail() {
                       {job.title}
                     </Typography>
                     <Typography variant="subtitle2" sx={{ color: '#00b14f', fontWeight: 700, mb: 2 }}>
-                      {company.company_name}
+                      {job.company_name}
                     </Typography>
 
                     {/* Metadata Badges */}
@@ -291,14 +338,14 @@ export default function JobDetail() {
               flexShrink: 0,
             }}
           >
-            <Stack spacing={3} sx={{ stickyPosition: 'sticky', top: 80 }}>
+            <Stack spacing={3}>
               {/* Box 1: Company Profile Box */}
               <Paper elevation={0} sx={{ p: 3, borderRadius: 3, border: '1px solid #e9ecef', backgroundColor: '#ffffff' }}>
                 <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 2 }}>
-                  <Avatar src={company.logo_url} variant="rounded" sx={{ width: 54, height: 54, border: '1px solid #e9ecef' }} />
+                  <Avatar src={job.logo_url} variant="rounded" sx={{ width: 54, height: 54, border: '1px solid #e9ecef' }} />
                   <Box>
                     <Typography variant="subtitle1" sx={{ fontWeight: 700, color: '#212529', lineHeight: 1.3 }}>
-                      {company.short_name || company.company_name}
+                      {company.short_name || job.company_name}
                     </Typography>
                     <Chip
                       icon={<CheckCircleIcon sx={{ fontSize: '13px !important', color: '#00b14f' }} />}
@@ -313,19 +360,19 @@ export default function JobDetail() {
                   <Stack direction="row" spacing={1} alignItems="center">
                     <PeopleIcon fontSize="small" sx={{ color: '#6c757d' }} />
                     <Typography variant="body2" sx={{ color: '#565e6c', fontSize: '0.85rem' }}>
-                      Quy mô: <strong>{company.company_size}</strong>
+                      Quy mô: <strong>{company.company_size || '500-1000 nhân viên'}</strong>
                     </Typography>
                   </Stack>
                   <Stack direction="row" spacing={1} alignItems="center">
                     <CategoryIcon fontSize="small" sx={{ color: '#6c757d' }} />
                     <Typography variant="body2" sx={{ color: '#565e6c', fontSize: '0.85rem' }}>
-                      Lĩnh vực: <strong>{company.category}</strong>
+                      Lĩnh vực: <strong>{company.category || job.category || 'Công nghệ Thông tin'}</strong>
                     </Typography>
                   </Stack>
                   <Stack direction="row" spacing={1} alignItems="flex-start">
                     <LocationOnIcon fontSize="small" sx={{ color: '#6c757d', mt: 0.3 }} />
                     <Typography variant="body2" sx={{ color: '#565e6c', fontSize: '0.85rem' }}>
-                      Địa điểm: {company.address}
+                      Địa điểm: {job.address_detail}
                     </Typography>
                   </Stack>
                 </Stack>
@@ -366,7 +413,7 @@ export default function JobDetail() {
                       Số lượng tuyển
                     </Typography>
                     <Typography variant="subtitle2" sx={{ fontWeight: 700, color: '#212529' }}>
-                      {job.quantity} người
+                      {job.quantity || 3} người
                     </Typography>
                   </Box>
                   <Box>
@@ -374,7 +421,7 @@ export default function JobDetail() {
                       Hình thức làm việc
                     </Typography>
                     <Typography variant="subtitle2" sx={{ fontWeight: 700, color: '#212529' }}>
-                      {job.job_type}
+                      {job.job_type === 'FULL_TIME' ? 'Toàn thời gian' : job.job_type || 'Toàn thời gian'}
                     </Typography>
                   </Box>
                   <Box>
@@ -382,7 +429,7 @@ export default function JobDetail() {
                       Giới tính
                     </Typography>
                     <Typography variant="subtitle2" sx={{ fontWeight: 700, color: '#212529' }}>
-                      {job.gender}
+                      {job.gender === 'NOT_REQUIRED' ? 'Không yêu cầu' : job.gender || 'Không yêu cầu'}
                     </Typography>
                   </Box>
                 </Stack>

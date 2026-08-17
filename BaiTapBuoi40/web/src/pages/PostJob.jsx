@@ -21,6 +21,7 @@ import SendIcon from '@mui/icons-material/Send';
 import SaveIcon from '@mui/icons-material/Save';
 import RichTextEditor from '../components/common/RichTextEditor';
 import { categories, locations } from '../mock/mockData';
+import { createJob } from '../api/jobService';
 
 export default function PostJob() {
   const navigate = useNavigate();
@@ -52,11 +53,33 @@ export default function PostJob() {
 
   const [openSnackbar, setOpenSnackbar] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setOpenSnackbar(true);
+    const createdJob = await createJob({
+      title,
+      category,
+      job_type: jobType,
+      level,
+      experience_level: experience,
+      quantity,
+      is_negotiable: isNegotiable,
+      salary_min: minSalary,
+      salary_max: maxSalary,
+      location,
+      address_detail: addressDetail,
+      deadline,
+      description_html: description,
+      requirements_html: requirements,
+      benefits_html: benefits,
+    });
+
     setTimeout(() => {
-      navigate('/');
+      if (createdJob && createdJob.id) {
+        navigate(`/job/${createdJob.id}`);
+      } else {
+        navigate('/');
+      }
     }, 1500);
   };
 
@@ -359,15 +382,7 @@ export default function PostJob() {
             >
               Hủy bỏ
             </Button>
-            <Button
-              variant="outlined"
-              color="primary"
-              size="large"
-              startIcon={<SaveIcon />}
-              sx={{ borderRadius: 2, px: 3, fontWeight: 600 }}
-            >
-              Lưu nháp
-            </Button>
+
             <Button
               type="submit"
               variant="contained"
