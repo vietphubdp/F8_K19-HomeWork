@@ -1,0 +1,10 @@
+services:
+    web:
+        container_name: f8-bt43
+        image: web01:001
+        # working_dir: /app/web
+        volumes:
+            - ./web:/app/web
+        ports:
+            - 5173:5173
+        command: ['npm', 'run', 'dev', '--', '--host']
